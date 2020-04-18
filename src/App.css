@@ -6,3 +6,17 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+
+.cell {
+  /* min-height: 3.9em; */
+  padding: 1.75em 1em;
+  min-width: 5.5em;
+}
+
+.cell span {
+  text-align: bottom;
+}
+
+td {
+  vertical-align: bottom;
+}

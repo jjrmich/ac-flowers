@@ -45,8 +45,12 @@ class CosmoCell extends Component {
   render(){
     return (
       <td>
-        {this.rGeneResult(this.props.res[0][0],this.props.res[0][1])}{this.yGeneResult(this.props.res[1][0],this.props.res[1][1])}
-        {this.sGeneResult(this.props.res[2][0],this.props.res[2][1])}
+        <div className="cell">
+          <span>
+            {this.rGeneResult(this.props.res[0][0],this.props.res[0][1])}{this.yGeneResult(this.props.res[1][0],this.props.res[1][1])}
+            {this.sGeneResult(this.props.res[2][0],this.props.res[2][1])}
+          </span>
+        </div>
       </td>
     );
   }

@@ -2,9 +2,14 @@
   text-align: center;
 }
 
+table {
+  min-width: 100%;
+}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  padding: 0px;
 }
 
 .cell {
@@ -13,10 +18,30 @@ table, th, td {
   min-width: 5.5em;
 }
 
-.cell span {
-  text-align: bottom;
-}
-
 td {
   vertical-align: bottom;
+}
+
+.cosmo-white {
+  background-color: #efefef;
+}
+
+.cosmo-yellow {
+  background-color: #ffd966;
+}
+
+.cosmo-pink {
+  background-color: #f4cccc;
+}
+
+.cosmo-orange {
+  background-color: #f6b26b;
+}
+
+.cosmo-red {
+  background-color: #e06666;
+}
+
+.cosmo-black {
+  background-color: #999999;
 }

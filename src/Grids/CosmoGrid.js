@@ -84,9 +84,11 @@ class CosmoGrid extends Component {
   render() {
     console.log('props.x[0]: ' + this.props.x[0]);
     return (
-      <table>
-        <tbody>{this.createGrid()}</tbody>
-      </table>
+      <div className='row'>
+        <table>
+          <tbody>{this.createGrid()}</tbody>
+        </table>
+      </div>
     )
   }
 }

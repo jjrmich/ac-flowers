@@ -22,6 +22,19 @@ td {
   vertical-align: bottom;
 }
 
+form {
+  border: 1px solid black;
+  margin: 2em 0;
+}
+
+.top-form {
+  margin: 0;
+}
+
+.current-color {
+  height: 3em;
+}
+
 .cosmo-white {
   background-color: #efefef;
 }

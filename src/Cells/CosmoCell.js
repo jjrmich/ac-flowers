@@ -99,25 +99,23 @@ class CosmoCell extends Component {
 
     // Rr
     else {
-      if (this.props.res[0][0] === 0 && this.props.res[0][1] === 0) {
-        // Rryy??
-        if (this.props.res[1][0] === 0 && this.props.res[1][1] === 0) {
+      // Rryy??
+      if (this.props.res[1][0] === 0 && this.props.res[1][1] === 0) {
+        return 'cosmo-pink';
+      }
+      // RrYY??
+      else if (this.props.res[1][0] === 1 && this.props.res[1][1] === 1) {
+        return 'cosmo-orange';
+      }
+      // RrYy
+      else {
+        // RrYySS
+        if (this.props.res[2][0] === 1 && this.props.res[2][1] === 1) {
           return 'cosmo-pink';
         }
-        // RrYY??
-        else if (this.props.res[1][0] === 1 && this.props.res[1][1] === 1) {
-          return 'cosmo-orange';
-        }
-        // RrYy
+        // RrYySs or RrYyss
         else {
-          // RrYySS
-          if (this.props.res[2][0] === 1 && this.props.res[2][1] === 1) {
-            return 'cosmo-pink';
-          }
-          // RrYySs or RrYyss
-          else {
-            return 'cosmo-orange'
-          }
+          return 'cosmo-orange'
         }
       }
     }

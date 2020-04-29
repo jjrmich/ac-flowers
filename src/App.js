@@ -1,5 +1,6 @@
 import React from 'react';
 import Cosmos from './Flowers/Cosmos';
+import Lilies from './Flowers/Lilies';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import $ from 'jquery';
@@ -17,7 +18,7 @@ function App() {
         </li>
         <li class="nav-item">
           <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-            Profile
+            Lilies
           </a>
         </li>
         <li class="nav-item">
@@ -31,7 +32,7 @@ function App() {
           <Cosmos />
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          ...
+          <Lilies />
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
           ...

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { calculateCosmoColor } from '../helpers';
 
 class CosmoCell extends Component {
   constructor(props){
@@ -42,91 +43,22 @@ class CosmoCell extends Component {
     }
   }
 
-  calculateColor() {
-
-    // rr
-    if (this.props.res[0][0] === 0 && this.props.res[0][1] === 0) {
-      // rryy??
-      if (this.props.res[1][0] === 0 && this.props.res[1][1] === 0) {
-        return 'cosmo-white';
-      }
-      // rrYY??
-      else if (this.props.res[1][0] === 1 && this.props.res[1][1] === 1) {
-        return 'cosmo-yellow';
-      }
-      // rrYy
-      else {
-        // rrYySS
-        if (this.props.res[2][0] === 1 && this.props.res[2][1] === 1) {
-          return 'cosmo-white';
-        }
-        // rrYySs or rrYyss
-        else {
-          return 'cosmo-yellow'
-        }
-      }
-    }
-
-    // RR
-    else if (this.props.res[0][0] === 1 && this.props.res[0][1] === 1) {
-      // RRyy??
-      if (this.props.res[1][0] === 0 && this.props.res[1][1] === 0) {
-        return 'cosmo-red';
-      }
-      // RRYY
-      else if (this.props.res[1][0] === 1 && this.props.res[1][1] === 1) {
-        // RRYYSS
-        if (this.props.res[2][0] === 1 && this.props.res[2][1] === 1) {
-          return 'cosmo-red';
-        }
-        // RRYYSs or RRYYss
-        else {
-          return 'cosmo-black';
-        }
-      }
-      // RRYy
-      else {
-        // RRYySS
-        if(this.props.res[2][0] === 1 && this.props.res[2][1] === 1) {
-          return 'cosmo-red';
-        }
-        // RRYySs or RRYYss
-        else {
-          return 'cosmo-orange';
-        }
-      }
-    }
-
-    // Rr
-    else {
-      // Rryy??
-      if (this.props.res[1][0] === 0 && this.props.res[1][1] === 0) {
-        return 'cosmo-pink';
-      }
-      // RrYY??
-      else if (this.props.res[1][0] === 1 && this.props.res[1][1] === 1) {
-        return 'cosmo-orange';
-      }
-      // RrYy
-      else {
-        // RrYySS
-        if (this.props.res[2][0] === 1 && this.props.res[2][1] === 1) {
-          return 'cosmo-pink';
-        }
-        // RrYySs or RrYyss
-        else {
-          return 'cosmo-orange'
-        }
-      }
-    }
-  }
-
   render(){
     return (
       <td>
-        <div className={"cell " + (this.calculateColor())}>
+        <div className={"cell " + (
+          calculateCosmoColor(
+            this.props.res[0][0],
+            this.props.res[0][1],
+            this.props.res[1][0],
+            this.props.res[1][1],
+            this.props.res[2][0],
+            this.props.res[2][1]
+          )
+        )}>
           <span>
-            {this.rGeneResult(this.props.res[0][0],this.props.res[0][1])}{this.yGeneResult(this.props.res[1][0],this.props.res[1][1])}
+            {this.rGeneResult(this.props.res[0][0],this.props.res[0][1])}
+            {this.yGeneResult(this.props.res[1][0],this.props.res[1][1])}
             {this.sGeneResult(this.props.res[2][0],this.props.res[2][1])}
           </span>
         </div>

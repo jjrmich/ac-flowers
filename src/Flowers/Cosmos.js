@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CosmoGrid from '../Grids/CosmoGrid';
+import { calculateCosmoColor } from '../helpers';
 
 class Cosmos extends Component {
   constructor(props) {
@@ -23,85 +24,6 @@ class Cosmos extends Component {
       yy2: 0,
       ys1: 0,
       ys2: 0,
-    }
-  }
-
-  calculateColor(r1, r2, y1, y2, s1, s2) {
-
-    // rr
-    if (r1 === 0 && r2 === 0) {
-      // rryy??
-      if (y1 === 0 && y2 === 0) {
-        return 'cosmo-white';
-      }
-      // rrYY??
-      else if (y1 === 1 && y2 === 1) {
-        return 'cosmo-yellow';
-      }
-      // rrYy
-      else {
-        // rrYySS
-        if (s1 === 1 && s2 === 1) {
-          return 'cosmo-white';
-        }
-        // rrYySs or rrYyss
-        else {
-          return 'cosmo-yellow'
-        }
-      }
-    }
-
-    // RR
-    else if (r1 === 1 && r2 === 1) {
-      // RRyy??
-      if (y1 === 0 && y2 === 0) {
-        return 'cosmo-red';
-      }
-      // RRYY
-      else if (y1 === 1 && y2 === 1) {
-        // RRYYSS
-        if (s1 === 1 && s2 === 1) {
-          return 'cosmo-red';
-        }
-        // RRYYSs or RRYYss
-        else {
-          return 'cosmo-black';
-        }
-      }
-      // RRYy
-      else {
-        // RRYySS
-        if(s1 === 1 && s2 === 1) {
-          return 'cosmo-red';
-        }
-        // RRYySs or RRYYss
-        else {
-          return 'cosmo-orange';
-        }
-      }
-    }
-
-    // Rr
-    else {
-      // Rryy??
-      if (y1 === 0 && y2 === 0) {
-        return 'cosmo-pink';
-      }
-      // RrYY??
-      else if (y1 === 1 && y2 === 1) {
-        return 'cosmo-orange';
-      }
-      // RrYy
-      else {
-        // RrYySS
-        if (s1 === 1 && s2 === 1) {
-          return 'cosmo-pink';
-        }
-        // RrYySs or RrYyss
-        else {
-          return 'cosmo-orange'
-        }
-      }
     }
   }
 
@@ -161,7 +83,7 @@ class Cosmos extends Component {
         <div className='row py-5'>
           <div className='col-3'>
             <form className='top-form'>
-              <div className={'current-color ' + this.calculateColor(this.state.yr1,this.state.yr2,this.state.yy1,this.state.yy2,this.state.ys1,this.state.ys2)}>
+              <div className={'current-color ' + calculateCosmoColor(this.state.yr1,this.state.yr2,this.state.yy1,this.state.yy2,this.state.ys1,this.state.ys2)}>
               </div>
                 <div className='row'>
                 <div className='col-4'>
@@ -273,7 +195,7 @@ class Cosmos extends Component {
 
             </form>
               <form>
-                <div className={'current-color ' + this.calculateColor(this.state.xr1,this.state.xr2,this.state.xy1,this.state.xy2,this.state.xs1,this.state.xs2)}></div>
+                <div className={'current-color ' + calculateCosmoColor(this.state.xr1,this.state.xr2,this.state.xy1,this.state.xy2,this.state.xs1,this.state.xs2)}></div>
                 <div className='row'>
                   <div className='col-4'>
                     <input

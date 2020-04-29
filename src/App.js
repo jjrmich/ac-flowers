@@ -1,6 +1,5 @@
 import React from 'react';
-import Cosmos from './Flowers/Cosmos';
-import Lilies from './Flowers/Lilies';
+import ThreeFlower from './Flowers/ThreeFlower';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import $ from 'jquery';
@@ -29,10 +28,10 @@ function App() {
       </ul>
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-          <Cosmos />
+          <ThreeFlower flowerName='cosmos' />
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <Lilies />
+          <ThreeFlower flowerName='lilies' />
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
           ...

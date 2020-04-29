@@ -1,4 +1,4 @@
-export const calculateCosmoColor = (r1, r2, y1, y2, s1, s2) => {
+let calculateCosmoColor = (r1, r2, y1, y2, s1, s2) => {
   // rr
   if (r1 === 0 && r2 === 0) {
     // rryy??
@@ -76,7 +76,7 @@ export const calculateCosmoColor = (r1, r2, y1, y2, s1, s2) => {
   }
 }
 
-export const calculateLilyColor = (r1, r2, y1, y2, s1, s2) => {
+let calculateLilyColor = (r1, r2, y1, y2, s1, s2) => {
   // rr
   if (r1 === 0 && r2 === 0) {
     // rryy??
@@ -165,5 +165,30 @@ export const calculateLilyColor = (r1, r2, y1, y2, s1, s2) => {
         return 'flower-yellow';
       }
     }
+  }
+}
+
+export const calculateThreeColor = (flowerName, r1, r2, y1, y2, s1, s2) => {
+  if(flowerName === 'cosmos') {
+    return calculateCosmoColor(r1, r2, y1, y2, s1, s2);
+  }
+  else if(flowerName === 'lilies') {
+    return calculateLilyColor(r1, r2, y1, y2, s1, s2);
+  }
+  else {
+    console.log('invalid flowerName for calculateThreeColor function');
+  }
+}
+
+export const geneNames = flowerName => {
+  if (flowerName === 'cosmos' || 'lilies' || 'tulips') {
+    return 'rys';
+  }
+  else if (flowerName === 'pansies' || 'hyacinths' || 'mums') {
+    return 'ryw';
+  }
+  // should only be true for windflowers
+  else {
+    return 'row';
   }
 }

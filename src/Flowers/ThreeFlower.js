@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import LilyGrid from '../Grids/LilyGrid';
-import { calculateLilyColor } from '../helpers';
+import ThreeGrid from '../Grids/ThreeGrid';
+import { calculateThreeColor, geneNames } from '../helpers';
 
-class Lilies extends Component {
+class ThreeFlower extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -78,12 +78,23 @@ class Lilies extends Component {
   render() {
     let newX = [[this.state.xr1,this.state.xr2],[this.state.xy1,this.state.xy2],[this.state.xs1,this.state.xs2]];
     let newY = [[this.state.yr1,this.state.yr2],[this.state.yy1,this.state.yy2],[this.state.ys1,this.state.ys2]];
+    let genes = geneNames(this.props.flowerName);
     return (
       <>
         <div className='row py-5'>
           <div className='col-3'>
             <form className='top-form'>
-              <div className={'current-color ' + calculateLilyColor(this.state.yr1,this.state.yr2,this.state.yy1,this.state.yy2,this.state.ys1,this.state.ys2)}>
+              <div className={'current-color ' + 
+                calculateThreeColor(
+                  this.props.flowerName,
+                  this.state.yr1,
+                  this.state.yr2,
+                  this.state.yy1,
+                  this.state.yy2,
+                  this.state.ys1,
+                  this.state.ys2
+                )
+              }>
               </div>
                 <div className='row'>
                 <div className='col-4'>
@@ -131,7 +142,7 @@ class Lilies extends Component {
                     checked={this.state.yySelected === '2'}
                     onChange={this.handleYyChange}
                   />
-                  <label htmlFor="YY">YY</label>
+                  <label htmlFor="YY">{genes === 'row' ? 'OO' : 'YY'}</label>
                 </div>
                 <div className='col-4'>
                   <input
@@ -142,7 +153,7 @@ class Lilies extends Component {
                     checked={this.state.yySelected === '1'}
                     onChange={this.handleYyChange}
                   />
-                  <label htmlFor="Yy">Yy</label>
+                  <label htmlFor="Yy">{genes === 'row' ? 'Oo' : 'Yy'}</label>
                 </div>
                 <div className='col-4'>
                   <input
@@ -153,7 +164,7 @@ class Lilies extends Component {
                     checked={this.state.yySelected === '0'}
                     onChange={this.handleYyChange}
                   />
-                  <label htmlFor="yy">yy</label>
+                  <label htmlFor="yy">{genes === 'row' ? 'oo' : 'yy'}</label>
                 </div>
               </div>
 
@@ -167,7 +178,7 @@ class Lilies extends Component {
                     checked={this.state.ysSelected === '2'}
                     onChange={this.handleYsChange}
                   />
-                  <label htmlFor="SS">SS</label>
+                  <label htmlFor="SS">{genes === 'rys' ? 'SS' : 'WW'}</label>
                 </div>
                 <div className='col-4'>
                   <input
@@ -178,7 +189,7 @@ class Lilies extends Component {
                     checked={this.state.ysSelected === '1'}
                     onChange={this.handleYsChange}
                   />
-                  <label htmlFor="Ss">Ss</label>
+                  <label htmlFor="Ss">{genes === 'rys' ? 'Ss' : 'Ww'}</label>
                 </div>
                 <div className='col-4'>
                   <input
@@ -189,13 +200,23 @@ class Lilies extends Component {
                     checked={this.state.ysSelected === '0'}
                     onChange={this.handleYsChange}
                   />
-                  <label htmlFor="ss">ss</label>
+                  <label htmlFor="ss">{genes === 'rys' ? 'ss' : 'ww'}</label>
                 </div>
               </div>
 
             </form>
               <form>
-                <div className={'current-color ' + calculateLilyColor(this.state.xr1,this.state.xr2,this.state.xy1,this.state.xy2,this.state.xs1,this.state.xs2)}></div>
+                <div className={'current-color ' + 
+                  calculateThreeColor(
+                    this.props.flowerName,
+                    this.state.xr1,
+                    this.state.xr2,
+                    this.state.xy1,
+                    this.state.xy2,
+                    this.state.xs1,
+                    this.state.xs2
+                  )
+                }></div>
                 <div className='row'>
                   <div className='col-4'>
                     <input
@@ -233,84 +254,86 @@ class Lilies extends Component {
                 </div>
 
                 <div className='row'>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="y-select"
-                      id="YY"
-                      value="2"
-                      checked={this.state.xySelected === '2'}
-                      onChange={this.handleXyChange}
-                    />
-                    <label htmlFor="YY">YY</label>
-                  </div>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="y-select"
-                      id="Yy"
-                      value="1"
-                      checked={this.state.xySelected === '1'}
-                      onChange={this.handleXyChange}
-                    />
-                    <label htmlFor="Yy">Yy</label>
-                  </div>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="y-select"
-                      id="yy"
-                      value="0"
-                      checked={this.state.xySelected === '0'}
-                      onChange={this.handleXyChange}
-                    />
-                    <label htmlFor="yy">yy</label>
-                  </div>
+                <div className='col-4'>
+                  <input
+                    type="radio"
+                    name="y-select"
+                    id="YY"
+                    value="2"
+                    checked={this.state.yySelected === '2'}
+                    onChange={this.handleYyChange}
+                  />
+                  <label htmlFor="YY">{genes === 'row' ? 'OO' : 'YY'}</label>
                 </div>
+                <div className='col-4'>
+                  <input
+                    type="radio"
+                    name="y-select"
+                    id="Yy"
+                    value="1"
+                    checked={this.state.yySelected === '1'}
+                    onChange={this.handleYyChange}
+                  />
+                  <label htmlFor="Yy">{genes === 'row' ? 'Oo' : 'Yy'}</label>
+                </div>
+                <div className='col-4'>
+                  <input
+                    type="radio"
+                    name="y-select"
+                    id="yy"
+                    value="0"
+                    checked={this.state.yySelected === '0'}
+                    onChange={this.handleYyChange}
+                  />
+                  <label htmlFor="yy">{genes === 'row' ? 'oo' : 'yy'}</label>
+                </div>
+              </div>
 
                 <div className='row'>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="s-select"
-                      id="SS"
-                      value="2"
-                      checked={this.state.xsSelected === '2'}
-                      onChange={this.handleXsChange}
-                    />
-                    <label htmlFor="SS">SS</label>
-                  </div>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="s-select"
-                      id="Ss"
-                      value="1"
-                      checked={this.state.xsSelected === '1'}
-                      onChange={this.handleXsChange}
-                    />
-                    <label htmlFor="Ss">Ss</label>
-                  </div>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="s-select"
-                      id="ss"
-                      value="0"
-                      checked={this.state.xsSelected === '0'}
-                      onChange={this.handleXsChange}
-                    />
-                    <label htmlFor="ss">ss</label>
-                  </div>
+                <div className='col-4'>
+                  <input
+                    type="radio"
+                    name="s-select"
+                    id="SS"
+                    value="2"
+                    checked={this.state.ysSelected === '2'}
+                    onChange={this.handleYsChange}
+                  />
+                  <label htmlFor="SS">{genes === 'rys' ? 'SS' : 'WW'}</label>
                 </div>
+                <div className='col-4'>
+                  <input
+                    type="radio"
+                    name="s-select"
+                    id="Ss"
+                    value="1"
+                    checked={this.state.ysSelected === '1'}
+                    onChange={this.handleYsChange}
+                  />
+                  <label htmlFor="Ss">{genes === 'rys' ? 'Ss' : 'Ww'}</label>
+                </div>
+                <div className='col-4'>
+                  <input
+                    type="radio"
+                    name="s-select"
+                    id="ss"
+                    value="0"
+                    checked={this.state.ysSelected === '0'}
+                    onChange={this.handleYsChange}
+                  />
+                  <label htmlFor="ss">{genes === 'rys' ? 'ss' : 'ww'}</label>
+                </div>
+              </div>
 
                 </form>
           </div>
           <div className='col-9'>
             <div>
-              <LilyGrid
+              <ThreeGrid
                 x={newX}
                 y={newY}
+                flowerName={this.props.flowerName}
+                geneName={genes}
               />
             </div>
           </div>
@@ -320,4 +343,4 @@ class Lilies extends Component {
   }
 }
 
-export default Lilies;
+export default ThreeFlower;

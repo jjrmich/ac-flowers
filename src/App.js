@@ -22,7 +22,7 @@ function App() {
         </li>
         <li class="nav-item">
           <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
-            Contact
+            Pansies
           </a>
         </li>
       </ul>
@@ -34,7 +34,7 @@ function App() {
           <ThreeFlower flowerName='lilies' />
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-          ...
+          <ThreeFlower flowerName='pansies' />
         </div>
       </div>
     </div>

@@ -80,265 +80,312 @@ class ThreeFlower extends Component {
     let newY = [[this.state.yr1,this.state.yr2],[this.state.yy1,this.state.yy2],[this.state.ys1,this.state.ys2]];
     let genes = geneNames(this.props.flowerName);
     return (
-      <>
-        <div className='row py-5'>
-          <div className='col-3'>
-            <form className='top-form'>
-              <div className={'current-color ' + 
-                calculateThreeColor(
-                  this.props.flowerName,
-                  this.state.yr1,
-                  this.state.yr2,
-                  this.state.yy1,
-                  this.state.yy2,
-                  this.state.ys1,
-                  this.state.ys2
-                )
-              }>
+      <div className='row py-5'>
+        {/* Holds the gene selectors */}
+        <div className='col-3'>
+          {/* Holds the top-most gene selector */}
+          <form className='top-form'>
+            <div className={'current-color ' + 
+              calculateThreeColor(
+                this.props.flowerName,
+                this.state.yr1,
+                this.state.yr2,
+                this.state.yy1,
+                this.state.yy2,
+                this.state.ys1,
+                this.state.ys2
+              )
+            }>
+            </div>
+            {/* Row with the r gene selectors */}
+            <div className='row'>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="r-select"
+                  id="RR"
+                  value="2"
+                  checked={this.state.yrSelected === '2'}
+                  onChange={this.handleYrChange}
+                />
+                <label htmlFor="RR">RR</label>
               </div>
-                <div className='row'>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="r-select"
-                    id="RR"
-                    value="2"
-                    checked={this.state.yrSelected === '2'}
-                    onChange={this.handleYrChange}
-                  />
-                  <label htmlFor="RR">RR</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="r-select"
-                    id="Rr"
-                    value="1"
-                    checked={this.state.yrSelected === '1'}
-                    onChange={this.handleYrChange}
-                  />
-                  <label htmlFor="Rr">Rr</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="r-select"
-                    id="rr"
-                    value="0"
-                    checked={this.state.yrSelected === '0'}
-                    onChange={this.handleYrChange}
-                  />
-                  <label htmlFor="rr">rr</label>
-                </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="r-select"
+                  id="Rr"
+                  value="1"
+                  checked={this.state.yrSelected === '1'}
+                  onChange={this.handleYrChange}
+                />
+                <label htmlFor="Rr">Rr</label>
               </div>
-
-                <div className='row'>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="y-select"
-                    id="YY"
-                    value="2"
-                    checked={this.state.yySelected === '2'}
-                    onChange={this.handleYyChange}
-                  />
-                  <label htmlFor="YY">{genes === 'row' ? 'OO' : 'YY'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="y-select"
-                    id="Yy"
-                    value="1"
-                    checked={this.state.yySelected === '1'}
-                    onChange={this.handleYyChange}
-                  />
-                  <label htmlFor="Yy">{genes === 'row' ? 'Oo' : 'Yy'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="y-select"
-                    id="yy"
-                    value="0"
-                    checked={this.state.yySelected === '0'}
-                    onChange={this.handleYyChange}
-                  />
-                  <label htmlFor="yy">{genes === 'row' ? 'oo' : 'yy'}</label>
-                </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="r-select"
+                  id="rr"
+                  value="0"
+                  checked={this.state.yrSelected === '0'}
+                  onChange={this.handleYrChange}
+                />
+                <label htmlFor="rr">rr</label>
               </div>
-
-                <div className='row'>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="s-select"
-                    id="SS"
-                    value="2"
-                    checked={this.state.ysSelected === '2'}
-                    onChange={this.handleYsChange}
-                  />
-                  <label htmlFor="SS">{genes === 'rys' ? 'SS' : 'WW'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="s-select"
-                    id="Ss"
-                    value="1"
-                    checked={this.state.ysSelected === '1'}
-                    onChange={this.handleYsChange}
-                  />
-                  <label htmlFor="Ss">{genes === 'rys' ? 'Ss' : 'Ww'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="s-select"
-                    id="ss"
-                    value="0"
-                    checked={this.state.ysSelected === '0'}
-                    onChange={this.handleYsChange}
-                  />
-                  <label htmlFor="ss">{genes === 'rys' ? 'ss' : 'ww'}</label>
-                </div>
+            </div>
+            {/* Row with the y/o gene selectors */}
+            <div className='row'>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="y-select"
+                  id="YY"
+                  value="2"
+                  checked={this.state.yySelected === '2'}
+                  onChange={this.handleYyChange}
+                />
+                <label htmlFor="YY">{genes === 'row' ? 'OO' : 'YY'}</label>
               </div>
-
-            </form>
-              <form>
-                <div className={'current-color ' + 
-                  calculateThreeColor(
-                    this.props.flowerName,
-                    this.state.xr1,
-                    this.state.xr2,
-                    this.state.xy1,
-                    this.state.xy2,
-                    this.state.xs1,
-                    this.state.xs2
-                  )
-                }></div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="y-select"
+                  id="Yy"
+                  value="1"
+                  checked={this.state.yySelected === '1'}
+                  onChange={this.handleYyChange}
+                />
+                <label htmlFor="Yy">{genes === 'row' ? 'Oo' : 'Yy'}</label>
+              </div>
+              <div className='col-4'>
+                <input
+                type="radio"
+                name="y-select"
+                id="yy"
+                value="0"
+                checked={this.state.yySelected === '0'}
+                onChange={this.handleYyChange}
+                />
+                <label htmlFor="yy">{genes === 'row' ? 'oo' : 'yy'}</label>
+              </div>
+            </div>
+            {/* Row with the w/s gene selectors */}
+            <div className='row'>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="s-select"
+                  id="SS"
+                  value="2"
+                  checked={this.state.ysSelected === '2'}
+                  onChange={this.handleYsChange}
+                />
+                <label htmlFor="SS">{genes === 'rys' ? 'SS' : 'WW'}</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="s-select"
+                  id="Ss"
+                  value="1"
+                  checked={this.state.ysSelected === '1'}
+                  onChange={this.handleYsChange}
+                />
+                <label htmlFor="Ss">{genes === 'rys' ? 'Ss' : 'Ww'}</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="s-select"
+                  id="ss"
+                  value="0"
+                  checked={this.state.ysSelected === '0'}
+                  onChange={this.handleYsChange}
+                />
+                <label htmlFor="ss">{genes === 'rys' ? 'ss' : 'ww'}</label>
+              </div>
+            </div>
+          </form>
+          {/* Holds the bottom-most gene selector */}
+          <form>
+            <div className={'current-color ' + 
+              calculateThreeColor(
+                this.props.flowerName,
+                this.state.xr1,
+                this.state.xr2,
+                this.state.xy1,
+                this.state.xy2,
+                this.state.xs1,
+                this.state.xs2
+              )
+            }>
+            </div>
+            {/* Row with the r gene selectors */}
+            <div className='row'>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="r-select"
+                  id="RR"
+                  value="2"
+                  checked={this.state.xrSelected === '2'}
+                  onChange={this.handleXrChange}
+                />
+                <label htmlFor="RR">RR</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="r-select"
+                  id="Rr"
+                  value="1"
+                  checked={this.state.xrSelected === '1'}
+                  onChange={this.handleXrChange}
+                />
+                <label htmlFor="Rr">Rr</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="r-select"
+                  id="rr"
+                  value="0"
+                  checked={this.state.xrSelected === '0'}
+                  onChange={this.handleXrChange}
+                />
+                <label htmlFor="rr">rr</label>
+              </div>
+            </div>
+            {/* Row with the y/o gene selectors */}
+            <div className='row'>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="y-select"
+                  id="YY"
+                  value="2"
+                  checked={this.state.yySelected === '2'}
+                  onChange={this.handleYyChange}
+                />
+                <label htmlFor="YY">{genes === 'row' ? 'OO' : 'YY'}</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="y-select"
+                  id="Yy"
+                  value="1"
+                  checked={this.state.yySelected === '1'}
+                  onChange={this.handleYyChange}
+                />
+                <label htmlFor="Yy">{genes === 'row' ? 'Oo' : 'Yy'}</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="y-select"
+                  id="yy"
+                  value="0"
+                  checked={this.state.yySelected === '0'}
+                  onChange={this.handleYyChange}
+                />
+                <label htmlFor="yy">{genes === 'row' ? 'oo' : 'yy'}</label>
+              </div>
+            </div>
+            {/* Row with the w/s gene selectors */}
+            <div className='row'>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="s-select"
+                  id="SS"
+                  value="2"
+                  checked={this.state.ysSelected === '2'}
+                  onChange={this.handleYsChange}
+                />
+                <label htmlFor="SS">{genes === 'rys' ? 'SS' : 'WW'}</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="s-select"
+                  id="Ss"
+                  value="1"
+                  checked={this.state.ysSelected === '1'}
+                  onChange={this.handleYsChange}
+                />
+                <label htmlFor="Ss">{genes === 'rys' ? 'Ss' : 'Ww'}</label>
+              </div>
+              <div className='col-4'>
+                <input
+                  type="radio"
+                  name="s-select"
+                  id="ss"
+                  value="0"
+                  checked={this.state.ysSelected === '0'}
+                  onChange={this.handleYsChange}
+                />
+                <label htmlFor="ss">{genes === 'rys' ? 'ss' : 'ww'}</label>
+              </div>
+            </div>
+          </form>
+          {/* buttons to set values to seed packet defaults */}
+          <div className='row'>
+            <div className='col-6'>
+              <div className='default-seed'>
+                <div className='col-12'>White Seeds</div>
                 <div className='row'>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="r-select"
-                      id="RR"
-                      value="2"
-                      checked={this.state.xrSelected === '2'}
-                      onChange={this.handleXrChange}
-                    />
-                    <label htmlFor="RR">RR</label>
+                  <div className='col-6'>
+                    <button className='default-seed-button'>1</button>
                   </div>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="r-select"
-                      id="Rr"
-                      value="1"
-                      checked={this.state.xrSelected === '1'}
-                      onChange={this.handleXrChange}
-                    />
-                    <label htmlFor="Rr">Rr</label>
-                  </div>
-                  <div className='col-4'>
-                    <input
-                      type="radio"
-                      name="r-select"
-                      id="rr"
-                      value="0"
-                      checked={this.state.xrSelected === '0'}
-                      onChange={this.handleXrChange}
-                    />
-                    <label htmlFor="rr">rr</label>
+                  <div className='col-6'>
+                    <button className='default-seed-button'>2</button>
                   </div>
                 </div>
-
+              </div>
+            </div>
+            <div className='col-6'>
+              <div className='default-seed'>
+                <div className='col-12'>Red <br />Seeds</div>
                 <div className='row'>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="y-select"
-                    id="YY"
-                    value="2"
-                    checked={this.state.yySelected === '2'}
-                    onChange={this.handleYyChange}
-                  />
-                  <label htmlFor="YY">{genes === 'row' ? 'OO' : 'YY'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="y-select"
-                    id="Yy"
-                    value="1"
-                    checked={this.state.yySelected === '1'}
-                    onChange={this.handleYyChange}
-                  />
-                  <label htmlFor="Yy">{genes === 'row' ? 'Oo' : 'Yy'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="y-select"
-                    id="yy"
-                    value="0"
-                    checked={this.state.yySelected === '0'}
-                    onChange={this.handleYyChange}
-                  />
-                  <label htmlFor="yy">{genes === 'row' ? 'oo' : 'yy'}</label>
+                <div className='col-6'>
+                    <button className='default-seed-button'>1</button>
+                  </div>
+                  <div className='col-6'>
+                    <button className='default-seed-button'>2</button>
+                  </div>
                 </div>
               </div>
-
-                <div className='row'>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="s-select"
-                    id="SS"
-                    value="2"
-                    checked={this.state.ysSelected === '2'}
-                    onChange={this.handleYsChange}
-                  />
-                  <label htmlFor="SS">{genes === 'rys' ? 'SS' : 'WW'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="s-select"
-                    id="Ss"
-                    value="1"
-                    checked={this.state.ysSelected === '1'}
-                    onChange={this.handleYsChange}
-                  />
-                  <label htmlFor="Ss">{genes === 'rys' ? 'Ss' : 'Ww'}</label>
-                </div>
-                <div className='col-4'>
-                  <input
-                    type="radio"
-                    name="s-select"
-                    id="ss"
-                    value="0"
-                    checked={this.state.ysSelected === '0'}
-                    onChange={this.handleYsChange}
-                  />
-                  <label htmlFor="ss">{genes === 'rys' ? 'ss' : 'ww'}</label>
-                </div>
-              </div>
-
-                </form>
+            </div>
           </div>
-          <div className='col-9'>
-            <div>
-              <ThreeGrid
-                x={newX}
-                y={newY}
-                flowerName={this.props.flowerName}
-                geneName={genes}
-              />
+          {/* last button to set values to seed packet defaults */}
+          <div className='row py-3'>
+            <div className='col-6'>
+              <div className='default-seed'>
+                <div className='col-12'>Yellow Seeds</div>
+                <div className='row'>
+                  <div className='col-6'>
+                    <button className='default-seed-button'>1</button>
+                  </div>
+                  <div className='col-6'>
+                    <button className='default-seed-button'>2</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </>
+        <div className='col-9'>
+          <div>
+            <ThreeGrid
+              x={newX}
+              y={newY}
+              flowerName={this.props.flowerName}
+              geneName={genes}
+            />
+          </div>
+        </div>
+      </div>
     )
   }
 }

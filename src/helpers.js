@@ -168,6 +168,67 @@ let calculateLilyColor = (r1, r2, y1, y2, s1, s2) => {
   }
 }
 
+let calculatePansyColor = (r1, r2, y1, y2, w1, w2) => {
+  // rr
+  if (r1 === 0 && r2 === 0) {
+    // rrYY
+    if (y1 === 1 && y2 === 1) {
+      return 'flower-yellow';
+    }
+    // rrYyww or rryyww
+    else if (w1 === 0 && w2 === 0) {
+      return 'flower-blue';
+    }
+    // rryyWW or rryyWw
+    else if (y1 === 0 && y2 === 0) {
+      return 'flower-white';
+    }
+    // rrYyWW or rrYyWw
+    else {
+      return 'flower-yellow';
+    }
+  }
+
+  // RR
+  else if (r1 === 1 && r2 === 1) {
+    // RR[xx]ww
+    if (w1 === 0 && w2 === 0) {
+      return 'flower-purple';
+    }
+    // RRYYWW or RRYYWw
+    else if (y1 === 1 && y2 === 1) {
+      return 'flower-orange';
+    }
+    // RRyyWW, RRyyWw, RRYyWW, RRYyWw
+    else {
+      return 'flower-red';
+    }
+  }
+
+  // Rr
+  else {
+    // RrYY
+    if (y1 === 1 && y2 === 1) {
+      return 'flower-yellow';
+    }
+    // Rryy
+    else if (y1  === 0 && y2 === 0) {
+      // Rryyww
+      if (w1 === 0 && w2 === 0) {
+        return 'flower-blue';
+      }
+      // RryyWW or RryyWw
+      else {
+        return 'flower-red';
+      }
+    }
+    // RrYy
+    else {
+      return 'flower-orange';
+    }
+  }
+}
+
 export const calculateThreeColor = (flowerName, r1, r2, y1, y2, s1, s2) => {
   if(flowerName === 'cosmos') {
     return calculateCosmoColor(r1, r2, y1, y2, s1, s2);
@@ -175,16 +236,19 @@ export const calculateThreeColor = (flowerName, r1, r2, y1, y2, s1, s2) => {
   else if(flowerName === 'lilies') {
     return calculateLilyColor(r1, r2, y1, y2, s1, s2);
   }
+  else if(flowerName === 'pansies') {
+    return calculatePansyColor(r1, r2, y1, y2, s1, s2);
+  }
   else {
     console.log('invalid flowerName for calculateThreeColor function');
   }
 }
 
 export const geneNames = flowerName => {
-  if (flowerName === 'cosmos' || 'lilies' || 'tulips') {
+  if (['cosmos', 'lilies', 'tulips'].includes(flowerName)) {
     return 'rys';
   }
-  else if (flowerName === 'pansies' || 'hyacinths' || 'mums') {
+  else if (['pansies', 'hyacinths', 'mums'].includes(flowerName)) {
     return 'ryw';
   }
   // should only be true for windflowers

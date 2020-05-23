@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ac-flowers/static/css/main.f52b4114.chunk.css",
+    "main.js": "/ac-flowers/static/js/main.5c8b1455.chunk.js",
+    "main.js.map": "/ac-flowers/static/js/main.5c8b1455.chunk.js.map",
+    "runtime-main.js": "/ac-flowers/static/js/runtime-main.b8da8228.js",
+    "runtime-main.js.map": "/ac-flowers/static/js/runtime-main.b8da8228.js.map",
+    "static/css/2.de424728.chunk.css": "/ac-flowers/static/css/2.de424728.chunk.css",
+    "static/js/2.3ef58061.chunk.js": "/ac-flowers/static/js/2.3ef58061.chunk.js",
+    "static/js/2.3ef58061.chunk.js.map": "/ac-flowers/static/js/2.3ef58061.chunk.js.map",
+    "index.html": "/ac-flowers/index.html",
+    "precache-manifest.8ae2cbca8165176eac729709bb71eb6b.js": "/ac-flowers/precache-manifest.8ae2cbca8165176eac729709bb71eb6b.js",
+    "service-worker.js": "/ac-flowers/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/ac-flowers/static/css/2.de424728.chunk.css.map",
+    "static/css/main.f52b4114.chunk.css.map": "/ac-flowers/static/css/main.f52b4114.chunk.css.map",
+    "static/js/2.3ef58061.chunk.js.LICENSE.txt": "/ac-flowers/static/js/2.3ef58061.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b8da8228.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.3ef58061.chunk.js",
+    "static/css/main.f52b4114.chunk.css",
+    "static/js/main.5c8b1455.chunk.js"
+  ]
+}

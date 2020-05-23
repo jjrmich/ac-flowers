@@ -27,6 +27,10 @@ form {
   margin: 2em 0;
 }
 
+.default-seed {
+  border: 1px solid black;
+}
+
 .top-form {
   margin: 0;
 }
@@ -53,6 +57,14 @@ form {
 
 .flower-red {
   background-color: #e06666;
+}
+
+.flower-blue {
+  background-color: #6d9eeb;
+}
+
+.flower-purple {
+  background-color: #b4a7d6;
 }
 
 .flower-black {

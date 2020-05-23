@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { calculateLilyColor } from '../helpers';
+import { calculateThreeColor } from '../helpers';
 
-class LilyCell extends Component {
+class ThreeCell extends Component {
   constructor(props){
     super(props);
     this.state = {}
@@ -21,25 +21,25 @@ class LilyCell extends Component {
 
   yGeneResult(y1, y2) {
     if (y1 === 0 && y2 === 0) {
-      return 'yy'
+      return this.props.geneName === 'row' ? 'oo' : 'yy'
     }
     else if (y1 === 1 && y2 === 1) {
-      return 'YY'
+      return this.props.geneName === 'row' ? 'OO' : 'YY'
     }
     else {
-      return 'Yy'
+      return this.props.geneName === 'row' ? 'Oo' : 'Yy'
     }
   }
 
   sGeneResult(s1, s2) {
     if (s1 === 0 && s2 === 0) {
-      return 'ss'
+      return this.props.geneName === 'rys' ? 'ss' : 'ww'
     }
     else if (s1 === 1 && s2 === 1) {
-      return 'SS'
+      return this.props.geneName === 'rys' ? 'SS' : 'WW'
     }
     else {
-      return 'Ss'
+      return this.props.geneName === 'rys' ? 'Ss' : 'Ww'
     }
   }
 
@@ -47,7 +47,8 @@ class LilyCell extends Component {
     return (
       <td>
         <div className={"cell " + (
-          calculateLilyColor(
+          calculateThreeColor(
+            this.props.flowerName,
             this.props.res[0][0],
             this.props.res[0][1],
             this.props.res[1][0],
@@ -67,4 +68,4 @@ class LilyCell extends Component {
   }
 }
 
-export default LilyCell;
+export default ThreeCell;

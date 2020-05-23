@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
-import CosmoCell from '../Cells/CosmoCell';
+import ThreeCell from '../Cells/ThreeCell';
 
-class CosmoGrid extends Component {
+class ThreeGrid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // x1: props.x[0],
-      // x2: props.x[1],
-      // x3: props.x[2],
-      // y1: props.y[0],
-      // y2: props.y[1],
-      // y3: props.y[2],
+
     }
   }
 
-  geneConvert(r,y,s) {
+  geneConvert(r,y,s,geneName) {
     var rGene = 'r';
-    var yGene = 'y';
-    var sGene = 's';
+    var yGene = geneName === 'row' ? 'o' : 'y';
+    var sGene = geneName === 'rys' ? 's' : 'w';
 
     if (r === 1) {
       rGene = 'R';
     } 
     if (y === 1) {
-      yGene = 'Y';
+      yGene = geneName === 'row' ? 'O' : 'Y';
     } 
     if (s === 1) {
-      sGene = 'S';
+      sGene = geneName === 'rys' ? 'S' : 'W';;
     } 
 
     return (<>{rGene}{yGene}{sGene}</>);
@@ -41,7 +36,7 @@ class CosmoGrid extends Component {
     for (var d = 0; d < 2; d++) {
       for (var e = 0; e < 2; e++) {
         for (var f = 0; f < 2; f++) {
-          firstRow.push(<th scope="col">{this.geneConvert(this.props.x[0][d],this.props.x[1][e],this.props.x[2][f])}</th>);
+          firstRow.push(<th scope="col">{this.geneConvert(this.props.x[0][d],this.props.x[1][e],this.props.x[2][f],this.props.geneName)}</th>);
         }
       }
     }
@@ -52,19 +47,21 @@ class CosmoGrid extends Component {
         for (var c = 0; c < 2; c++) {
 
           let row = [];
-          row.push(<th scope="row">{this.geneConvert(this.props.y[0][a],this.props.y[1][b],this.props.y[2][c])}</th>);
+          row.push(<th scope="row">{this.geneConvert(this.props.y[0][a],this.props.y[1][b],this.props.y[2][c],this.props.geneName)}</th>);
 
           for (var i = 0; i < 2; i++) {
             for (var j = 0; j < 2; j++) {
               for (var k = 0; k < 2; k++) {
                 row.push(
-                  <CosmoCell
+                  <ThreeCell
                     key={k + j*2 + i*4} 
                     res={[
                       [this.props.x[0][i],this.props.y[0][a]],
                       [this.props.x[1][j],this.props.y[1][b]],
                       [this.props.x[2][k],this.props.y[2][c]]
                     ]}
+                    flowerName={this.props.flowerName}
+                    geneName={this.props.geneName}
                   />
                 );
               }
@@ -82,7 +79,6 @@ class CosmoGrid extends Component {
   }
 
   render() {
-    console.log('props.x[0]: ' + this.props.x[0]);
     return (
       <div className='row'>
         <table>
@@ -93,4 +89,4 @@ class CosmoGrid extends Component {
   }
 }
 
-export default CosmoGrid;
+export default ThreeGrid;
